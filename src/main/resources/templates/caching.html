@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caching Strategies</title>
+
+    <!-- Styling for the page -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .strategy-card {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .strategy-card h2 {
+            color: #4CAF50;
+        }
+
+        .strategy-card p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .diagram img {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Caching Strategies in System Design</h1>
+</header>
+
+<div class="container">
+    <!-- Read-Through Strategy -->
+    <div class="strategy-card">
+        <h2>1. Read-Through</h2>
+        <p>
+            In the **Read-Through** caching strategy, when a request is made to the cache for a specific item,
+            the cache is checked first. If the data is not available in the cache, the data is loaded from
+            the database and written into the cache for future use.
+        </p>
+        <div class="diagram">
+            <img src="https://waytoeasylearn.com/storage/2024/04/Read-through-cache.png" alt="Read-Through Diagram">
+        </div>
+    </div>
+
+    <!-- Cache-Aside Strategy -->
+    <div class="strategy-card">
+        <h2>2. Cache-Aside</h2>
+        <p>
+            In the **Cache-Aside** strategy, the application is responsible for loading data from the database
+            and placing it into the cache. The cache is checked before the database is queried, and data is
+            removed from the cache only when it is explicitly evicted.
+        </p>
+        <div class="diagram">
+            <img src="https://cdn-images-1.medium.com/v2/resize:fit:800/1*3DDetzMbVd7HfLU_xrCCbA.png" alt="Cache-Aside Diagram">
+        </div>
+    </div>
+
+    <!-- Write-Through Strategy -->
+    <div class="strategy-card">
+        <h2>3. Write-Through</h2>
+        <p>
+            The **Write-Through** caching strategy writes data to both the cache and the database at the same time.
+            This ensures that the cache is always up-to-date with the latest changes in the database.
+        </p>
+        <div class="diagram">
+            <img src="https://tinyurl.com/write-through-cache" alt="Write-Through Diagram">
+        </div>
+    </div>
+
+    <!-- Write-Around Strategy -->
+    <div class="strategy-card">
+        <h2>4. Write-Around</h2>
+        <p>
+            In the **Write-Around** strategy, data is written directly to the database, bypassing the cache. 
+            This approach ensures that only the most recent data is stored in the database but doesn’t immediately 
+            update the cache.
+        </p>
+        <div class="diagram">
+            <img src="https://ucarecdn.com/52e92dc2-d666-4d33-8f87-cdbeecde8842/" alt="Write-Around Diagram">
+        </div>
+    </div>
+
+    <!-- Write-Back Strategy -->
+    <div class="strategy-card">
+        <h2>5. Write-Back</h2>
+        <p>
+            The **Write-Back** caching strategy involves writing data to the cache first, and then asynchronously
+            updating the database. This strategy is beneficial for write-heavy operations where reducing database
+            load is crucial.
+        </p>
+        <div class="diagram">
+            <img src=https://www.prisma.io/dataguide/static/f950c899e6be1b733a8fff259cb4dd82/d880f/write-back.png alt="Write-Back Diagram">
+        </div>
+    </div>
+    
+     <!-- Write-Back Strategy -->
+    <div class="strategy-card">
+        <h2>6. All Strategies</h2>
+        <p>
+            All Strategies in single diagram.
+        </p>
+        <div class="diagram">
+            <img src="https://pbs.twimg.com/media/FM8KDcmVICIn2YA?format=jpg&name=medium" alt="All in one Diagram">
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="/" class="btn">Go Back to Home</a>
+    </div>
+    
+     <div style="text-align: justify">
+        <a href="/users/read-through/123" class="btn">Go Back to Caching Demo</a>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <p>Developed with ❤️ by believe Team | Caching Strategies Explained</p>
+</footer>
+
+</body>
+</html>

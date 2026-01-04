@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>User</title>
+</head>
+<body>
+	<h1>User Info</h1>
+	<div>
+		<p>
+			ID: <span th:text="${user.id}"></span>
+		</p>
+		<p>
+			Name: <span th:text="${user.name}"></span>
+		</p>
+	</div>
+	<hr />
+	<h2>Cache Operations</h2>
+	<form action="/users/write-through" method="POST">
+		<input type="text" name="id" th:value="${user.id}" /> 
+		<input type="text" name="name" th:value="${user.name}" />
+		<button type="submit">Write Through</button>
+	</form>
+	<form action="/users/write-around" method="POST">
+		<input type="hidden" name="id" th:value="${user.id}" /> 
+		<input type="text" name="name" th:value="${user.name}" />
+		<button type="submit">Write Around</button>
+	</form>
+	<form action="/users/write-back" method="POST">
+		<input type="hidden" name="id" th:value="${user.id}" /> 
+		<input type="text" name="name" th:value="${user.name}" />
+		<button type="submit">Write Back</button>
+	</form>
+</body>
+</html>
